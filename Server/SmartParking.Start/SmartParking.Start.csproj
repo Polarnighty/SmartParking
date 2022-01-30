@@ -2,10 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>SmartParking.Server.Start</AssemblyName>
+    <RootNamespace>SmartParking.Server.Start</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 
 </Project>
