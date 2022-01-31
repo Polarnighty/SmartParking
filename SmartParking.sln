@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Start", "Serve
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DAL", "3.DAL", "{575445FE-2864-43BF-A7CB-CEAD2DDE9857}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Server.EFCore", "Server\SmartParking.Server.EFCore\SmartParking.Server.EFCore.csproj", "{FBBB1803-1A12-4BA8-BAE0-C28A41EECA59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Server.EFCore", "Server\SmartParking.Server.EFCore\SmartParking.Server.EFCore.csproj", "{FBBB1803-1A12-4BA8-BAE0-C28A41EECA59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Common", "4.Common", "{669F9E78-D531-404D-BA73-BFF67E6B4C56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Server.Models", "Server\SmartParking.Server.Models\SmartParking.Server.Models.csproj", "{A303F784-5A72-44A0-819A-948F1800BFFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Server.Models", "Server\SmartParking.Server.Models\SmartParking.Server.Models.csproj", "{A303F784-5A72-44A0-819A-948F1800BFFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Server.Configuration", "Server\SmartParking.Server.Configuration\SmartParking.Server.Configuration.csproj", "{775BB7B5-E19B-4489-8764-378FE648F191}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{A303F784-5A72-44A0-819A-948F1800BFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A303F784-5A72-44A0-819A-948F1800BFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A303F784-5A72-44A0-819A-948F1800BFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{775BB7B5-E19B-4489-8764-378FE648F191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775BB7B5-E19B-4489-8764-378FE648F191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775BB7B5-E19B-4489-8764-378FE648F191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775BB7B5-E19B-4489-8764-378FE648F191}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{FBBB1803-1A12-4BA8-BAE0-C28A41EECA59} = {575445FE-2864-43BF-A7CB-CEAD2DDE9857}
 		{669F9E78-D531-404D-BA73-BFF67E6B4C56} = {AFEF8E0A-38E2-4212-9EC4-1854144393BB}
 		{A303F784-5A72-44A0-819A-948F1800BFFB} = {669F9E78-D531-404D-BA73-BFF67E6B4C56}
+		{775BB7B5-E19B-4489-8764-378FE648F191} = {669F9E78-D531-404D-BA73-BFF67E6B4C56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C23EC18-A4AA-4976-934C-CDCA53FF035E}
