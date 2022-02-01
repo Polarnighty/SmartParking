@@ -1,13 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>SmartParking.Server.Start</AssemblyName>
-    <RootNamespace>SmartParking.Server.Start</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SmartParking.Server.EFCore\SmartParking.Server.EFCore.csproj" />
     <ProjectReference Include="..\SmartParking.Server.IService\SmartParking.Server.IService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Service\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartParking.Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ namespace SmartParking.Server.EFCore
 {
     public class EFCoreContext:DbContext
     {
-        private readonly string strConn;
+        private readonly string strConn= "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SmartParking;Integrated Security=True;";
+        protected DbSet<SysUserInfo> sysUserInfos;
+        public EFCoreContext()
+        {
 
+        }
         public EFCoreContext(string connectStr)
         {
             strConn = connectStr;
@@ -18,7 +23,14 @@ namespace SmartParking.Server.EFCore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(strConn);
             //base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }
