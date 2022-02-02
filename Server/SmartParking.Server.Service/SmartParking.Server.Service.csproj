@@ -9,8 +9,4 @@
     <ProjectReference Include="..\SmartParking.Server.IService\SmartParking.Server.IService.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
-
 </Project>

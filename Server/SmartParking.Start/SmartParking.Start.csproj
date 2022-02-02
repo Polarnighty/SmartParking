@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SmartParking.Server.IService\SmartParking.Server.IService.csproj" />
+    <ProjectReference Include="..\SmartParking.Server.Models\SmartParking.Server.Models.csproj" />
   </ItemGroup>
 
 </Project>

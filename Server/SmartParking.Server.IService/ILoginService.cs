@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SmartParking.Server.IService
 {
-    public interface ILoginService
+    public interface ILoginService : IBaseService
     {
-        public void Get(string un, string pwd);
+        public void Get(string username, string pwd);
     }
 }
