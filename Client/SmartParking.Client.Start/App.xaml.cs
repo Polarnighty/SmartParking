@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Unity;
+using SmartParking.Client.Start.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,6 +19,15 @@ namespace SmartParking.Client.Start
         protected override Window CreateShell()
         {
             return Container.Resolve<MainWindow>();
+        }
+
+        protected override void InitializeShell(Window shell)
+        {
+            if (Container.Resolve<LoginView>().ShowDialog()==false)
+            {
+                Current?.Shutdown();
+            }
+            base.InitializeShell(shell);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
