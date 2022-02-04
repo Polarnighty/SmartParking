@@ -29,7 +29,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{DC8D8E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Start", "1.Start", "{7997E243-0E69-42EE-B07E-216BB4F9F5CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.Start", "Client\SmartParking.Client.Start\SmartParking.Client.Start.csproj", "{50594AF8-47DC-433A-87A1-AB9A3AFB9BFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.Start", "Client\SmartParking.Client.Start\SmartParking.Client.Start.csproj", "{50594AF8-47DC-433A-87A1-AB9A3AFB9BFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Common", "6.Common", "{207FF5C7-DAE4-44D2-8239-91D166DDAE64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.Common", "Client\SmartParking.Client.Common\SmartParking.Client.Common.csproj", "{48294D2B-3492-4323-ACB7-34622B5DADC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,10 @@ Global
 		{50594AF8-47DC-433A-87A1-AB9A3AFB9BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50594AF8-47DC-433A-87A1-AB9A3AFB9BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50594AF8-47DC-433A-87A1-AB9A3AFB9BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48294D2B-3492-4323-ACB7-34622B5DADC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48294D2B-3492-4323-ACB7-34622B5DADC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48294D2B-3492-4323-ACB7-34622B5DADC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48294D2B-3492-4323-ACB7-34622B5DADC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +90,8 @@ Global
 		{BA0AEDF9-D071-4FFB-91E2-62A6FC5813F3} = {66ECA2DA-DA28-4549-97F4-68F2A31D3120}
 		{7997E243-0E69-42EE-B07E-216BB4F9F5CB} = {DC8D8E90-F6F8-4EE8-AB71-BB44171D3EAB}
 		{50594AF8-47DC-433A-87A1-AB9A3AFB9BFA} = {7997E243-0E69-42EE-B07E-216BB4F9F5CB}
+		{207FF5C7-DAE4-44D2-8239-91D166DDAE64} = {DC8D8E90-F6F8-4EE8-AB71-BB44171D3EAB}
+		{48294D2B-3492-4323-ACB7-34622B5DADC3} = {207FF5C7-DAE4-44D2-8239-91D166DDAE64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C23EC18-A4AA-4976-934C-CDCA53FF035E}

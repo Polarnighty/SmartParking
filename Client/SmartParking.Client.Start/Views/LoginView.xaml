@@ -3,11 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:local="clr-namespace:SmartParking.Client.Start.Views"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="LoginView" Height="450" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" FontSize="30"
+        Title="LoginWindow" Height="450" Width="800">
     <Grid>
-        <TextBox Text="登录窗口"></TextBox>
-        <Button Width="100" Height="30" Content="登录" Click="Button_Click"></Button>
+        <StackPanel>
+            <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
+            <PasswordBox/>
+            <TextBlock Text="{Binding ErrorMsg}" Foreground="Red"/>
+            <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>

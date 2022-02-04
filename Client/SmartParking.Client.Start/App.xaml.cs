@@ -23,11 +23,12 @@ namespace SmartParking.Client.Start
 
         protected override void InitializeShell(Window shell)
         {
-            if (Container.Resolve<LoginView>().ShowDialog()==false)
+            if (Container.Resolve<LoginView>().ShowDialog() == false)
             {
                 Current?.Shutdown();
             }
-            base.InitializeShell(shell);
+            else
+                base.InitializeShell(shell);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
