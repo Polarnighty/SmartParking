@@ -10,4 +10,9 @@
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartParking.Client.BLL\SmartParking.Client.BLL.csproj" />
+    <ProjectReference Include="..\SmartParking.Client.Common\SmartParking.Client.Common.csproj" />
+  </ItemGroup>
+
 </Project>

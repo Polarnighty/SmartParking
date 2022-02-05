@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using SmartParking.Client.BLL.BLL;
+using SmartParking.Client.BLL.IBLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,11 @@ namespace SmartParking.Client.Start.ViewModels
     public class LoginViewModel : BindableBase
     {
         private string userName = "admin";
-
+        private ILoginBLL loginBLL;
+        public LoginViewModel(ILoginBLL loginBLL)
+        {
+            this.loginBLL = loginBLL;
+        }
         public string UserName
         {
             get { return userName; }
@@ -20,7 +26,7 @@ namespace SmartParking.Client.Start.ViewModels
         }
 
 
-        private string password;
+        private string password="123456";
 
         public string Password
         {
@@ -57,11 +63,16 @@ namespace SmartParking.Client.Start.ViewModels
                     ErrorMsg = "请输入密码";
                     return;
                 }
+                //登录操作
+                if (loginBLL.Lgoin(UserName, Password).GetAwaiter().GetResult())
+                {
+                    //关闭登录窗口
+                }
 
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex);
             }
         }
     }
