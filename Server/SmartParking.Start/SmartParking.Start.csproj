@@ -4,11 +4,25 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>SmartParking.Server.Start</AssemblyName>
     <RootNamespace>SmartParking.Server.Start</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>WinExe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmartParking.Server.Configuration\SmartParking.Server.Configuration.csproj" />
+    <ProjectReference Include="..\SmartParking.Server.EFCore\SmartParking.Server.EFCore.csproj" />
     <ProjectReference Include="..\SmartParking.Server.IService\SmartParking.Server.IService.csproj" />
     <ProjectReference Include="..\SmartParking.Server.Models\SmartParking.Server.Models.csproj" />
+    <ProjectReference Include="..\SmartParking.Server.Service\SmartParking.Server.Service.csproj" />
   </ItemGroup>
 
 </Project>

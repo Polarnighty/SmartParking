@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace SmartParking.Client.BLL.BLL
 {
-    public class LoginBll: ILoginBLL
+    public class LoginBLL: ILoginBLL
     {
         ILoginDAL loginDAL;
-        public LoginBll(ILoginDAL loginDAL)
+        public LoginBLL(ILoginDAL loginDAL)
         {
             this.loginDAL = loginDAL;
         }

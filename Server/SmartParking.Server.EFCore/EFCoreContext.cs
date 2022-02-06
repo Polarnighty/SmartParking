@@ -14,7 +14,7 @@ namespace SmartParking.Server.EFCore
         protected DbSet<SysUserInfo> sysUserInfos;
         public EFCoreContext()
         {
-
+            Database.EnsureCreated();
         }
         public EFCoreContext(string connectStr)
         {
@@ -29,6 +29,7 @@ namespace SmartParking.Server.EFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<SysUserInfo>();
             base.OnModelCreating(modelBuilder);
         }
 
