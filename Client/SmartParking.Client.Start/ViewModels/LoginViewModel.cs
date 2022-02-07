@@ -3,11 +3,8 @@ using Prism.Mvvm;
 using SmartParking.Client.BLL.BLL;
 using SmartParking.Client.BLL.IBLL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace SmartParking.Client.Start.ViewModels
 {
@@ -67,7 +64,7 @@ namespace SmartParking.Client.Start.ViewModels
                 if (loginBLL.Lgoin(UserName, Password).GetAwaiter().GetResult())
                 {
                     //关闭登录窗口,并且DialogResult返回True
-
+                    (obj as Window).DialogResult = true;
                 }
 
             }

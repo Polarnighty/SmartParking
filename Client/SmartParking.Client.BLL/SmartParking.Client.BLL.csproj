@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SmartParking.Client.DAL\SmartParking.Client.DAL.csproj" />
+    <ProjectReference Include="..\SmartParking.Client.Entity\SmartParking.Client.Entity.csproj" />
   </ItemGroup>
 
 </Project>

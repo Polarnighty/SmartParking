@@ -23,7 +23,7 @@ namespace SmartParking.Server.Start.Controllers
         public IActionResult Login([FromForm] string userName,[FromForm] string password)
         {
             string pwd = GetMd5Str(GetMd5Str(password) + "|" + userName);
-            var users = loginService.Query<SysUserInfo>(u => u.UserName == userName && u.PassWord == password);
+            var users = loginService.Query<SysUserInfo>(u => u.UserName == userName && u.PassWord == pwd);
 
             if (users?.Count() > 0)
             {

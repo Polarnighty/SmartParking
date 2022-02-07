@@ -15,7 +15,8 @@
             <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}" 
                          pwdHelper:PasswordHelper.Attach="True"/>
             <TextBlock Text="{Binding ErrorMsg}" Foreground="Red"/>
-            <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"/>
+            <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"
+                                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}}}"/>
         </StackPanel>
     </Grid>
 </Window>

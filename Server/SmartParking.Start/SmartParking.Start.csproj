@@ -5,7 +5,7 @@
     <AssemblyName>SmartParking.Server.Start</AssemblyName>
     <RootNamespace>SmartParking.Server.Start</RootNamespace>
     <ApplicationIcon />
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <StartupObject />
   </PropertyGroup>
 

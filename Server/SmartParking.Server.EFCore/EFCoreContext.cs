@@ -14,7 +14,7 @@ namespace SmartParking.Server.EFCore
         protected DbSet<SysUserInfo> sysUserInfos;
         public EFCoreContext()
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         public EFCoreContext(string connectStr)
         {
