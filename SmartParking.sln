@@ -41,11 +41,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.DAL", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.BLL", "3.BLL", "{4EE009F9-97AE-47CF-8E49-A0386EF78BF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.BLL", "Client\SmartParking.Client.BLL\SmartParking.Client.BLL.csproj", "{F69E9536-E5EE-4E4D-8F01-9D638E420636}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.BLL", "Client\SmartParking.Client.BLL\SmartParking.Client.BLL.csproj", "{F69E9536-E5EE-4E4D-8F01-9D638E420636}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Entity", "5.Entity", "{F2BCB4DB-FA76-4E41-A5F1-8C0C94968D1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.Entity", "Client\SmartParking.Client.Entity\SmartParking.Client.Entity.csproj", "{0EB3D2BA-2386-4F9C-B5F2-F62A3519EF45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.Entity", "Client\SmartParking.Client.Entity\SmartParking.Client.Entity.csproj", "{0EB3D2BA-2386-4F9C-B5F2-F62A3519EF45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.Assets", "Client\SmartParking.Client.Assets\SmartParking.Client.Assets.csproj", "{C1FC64D5-08DC-48B0-B077-B16480FD3C7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{0EB3D2BA-2386-4F9C-B5F2-F62A3519EF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EB3D2BA-2386-4F9C-B5F2-F62A3519EF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EB3D2BA-2386-4F9C-B5F2-F62A3519EF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1FC64D5-08DC-48B0-B077-B16480FD3C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1FC64D5-08DC-48B0-B077-B16480FD3C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1FC64D5-08DC-48B0-B077-B16480FD3C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1FC64D5-08DC-48B0-B077-B16480FD3C7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{F69E9536-E5EE-4E4D-8F01-9D638E420636} = {4EE009F9-97AE-47CF-8E49-A0386EF78BF4}
 		{F2BCB4DB-FA76-4E41-A5F1-8C0C94968D1C} = {DC8D8E90-F6F8-4EE8-AB71-BB44171D3EAB}
 		{0EB3D2BA-2386-4F9C-B5F2-F62A3519EF45} = {F2BCB4DB-FA76-4E41-A5F1-8C0C94968D1C}
+		{C1FC64D5-08DC-48B0-B077-B16480FD3C7F} = {207FF5C7-DAE4-44D2-8239-91D166DDAE64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C23EC18-A4AA-4976-934C-CDCA53FF035E}

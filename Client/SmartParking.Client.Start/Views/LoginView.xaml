@@ -7,16 +7,30 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:local="clr-namespace:SmartParking.Client.Start.Views"
         xmlns:pwdHelper="clr-namespace:SmartParking.Client.Common;assembly=SmartParking.Client.Common"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" FontSize="30"
-        Title="LoginWindow" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Title="登录" Height="328" Width="428">
+    <Window.Resources>
+        <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml"/>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="-1" ResizeBorderThickness="0" />
+    </WindowChrome.WindowChrome>
+    <Grid Margin="-1215,-138,-972,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.618*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Background="#2E9FFB"></Border>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+            
+        </StackPanel>
         <StackPanel>
             <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
             <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}" 
                          pwdHelper:PasswordHelper.Attach="True"/>
             <TextBlock Text="{Binding ErrorMsg}" Foreground="Red"/>
             <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"
-                                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}}}"/>
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
         </StackPanel>
     </Grid>
 </Window>
