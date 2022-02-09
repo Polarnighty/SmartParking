@@ -10,6 +10,10 @@ namespace SmartParking.Client.DAL.DAL
 {
     public class LoginDAL : WebDataAcess, ILoginDAL
     {
+        public LoginDAL()
+        {
+
+        }
         public Task<string> Login(string userName, string password)
         {
             var contents = new Dictionary<string,HttpContent>();
@@ -17,5 +21,7 @@ namespace SmartParking.Client.DAL.DAL
             contents.Add("password", new StringContent(password));
             return PostDatas("user/login", contents);
         }
+
+
     }
 }

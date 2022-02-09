@@ -1,6 +1,5 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using SmartParking.Client.BLL.BLL;
 using SmartParking.Client.BLL.IBLL;
 using System;
 using System.Windows.Input;
@@ -23,7 +22,7 @@ namespace SmartParking.Client.Start.ViewModels
         }
 
 
-        private string password="123456";
+        private string password = "123456";
 
         public string Password
         {

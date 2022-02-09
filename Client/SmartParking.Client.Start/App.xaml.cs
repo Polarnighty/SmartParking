@@ -2,6 +2,7 @@
 using Prism.Unity;
 using SmartParking.Client.BLL.BLL;
 using SmartParking.Client.BLL.IBLL;
+using SmartParking.Client.DAL.DAL;
 using SmartParking.Client.DAL.IDAL;
 using SmartParking.Client.Start.Views;
 using System;
@@ -36,7 +37,7 @@ namespace SmartParking.Client.Start
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<ILoginDAL, ILoginDAL>();
+            containerRegistry.Register<ILoginDAL, LoginDAL>();
             containerRegistry.Register<ILoginBLL, LoginBLL>();
         }
     }
