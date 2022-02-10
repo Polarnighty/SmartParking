@@ -17,23 +17,30 @@
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.618*">
-            </RowDefinition>
+            <RowDefinition Height="0.618*"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Border Background="#2E9FFB" Margin="40,69,-40,-69"></Border>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Border Background="#2E9FFB"></Border>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8 0">
+            <TextBlock Text="Polar" VerticalAlignment="Center" Foreground="White" FontSize="16"  />
+        </StackPanel>
+
+        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
             <Button Content="&#xe6bf;" Style="{StaticResource IconButtonStyle}"
                     Height="28" Background="Transparent"/>
             <Button Content="&#xe625;" Style="{StaticResource IconButtonStyle}" Height="28" Background="Transparent"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
+        </StackPanel>-->
+        
+        <!--<StackPanel Grid.Row="1">
             <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
             <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}" 
                          pwdHelper:PasswordHelper.Attach="True"/>
             <TextBlock Text="{Binding ErrorMsg}" Foreground="Red"/>
             <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-        </StackPanel>
+        </StackPanel>-->
+        
     </Grid>
 </Window>
 
