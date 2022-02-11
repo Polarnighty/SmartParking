@@ -6,7 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\iconfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Styles\ButtonStyles.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\iconfont.ttf" />
+    <Resource Include="Styles\ButtonStyles.xaml" />
   </ItemGroup>
 
 </Project>

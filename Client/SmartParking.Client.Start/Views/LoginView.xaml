@@ -20,18 +20,18 @@
             <RowDefinition Height="0.618*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Border Background="#2E9FFB"></Border>
+        <Border Background="#2E9FFB" Grid.ColumnSpan="2"></Border>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8 0">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,0,0,0">
             <TextBlock Text="Polar" VerticalAlignment="Center" Foreground="White" FontSize="16"  />
         </StackPanel>
 
-        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button Content="&#xe6bf;" Style="{StaticResource IconButtonStyle}"
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button Content="&#xe624;" Style="{StaticResource IconButtonStyle}"
                     Height="28" Background="Transparent"/>
-            <Button Content="&#xe625;" Style="{StaticResource IconButtonStyle}" Height="28" Background="Transparent"/>
-        </StackPanel>-->
-        
+            <Button Content="&#xe602;" Style="{StaticResource IconButtonStyle}" Height="28" Background="Transparent"/>
+        </StackPanel>
+
         <!--<StackPanel Grid.Row="1">
             <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
             <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}" 
@@ -40,7 +40,7 @@
             <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
         </StackPanel>-->
-        
+
     </Grid>
 </Window>
 

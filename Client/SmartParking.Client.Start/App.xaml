@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:SmartParking.Client.Start"
              xmlns:prism="http://prismlibrary.com/">
     <Application.Resources>
-         
+        <FontFamily x:Key="Iconfont">pack://application:,,,/SmartParking.Client.Assets;component/Fonts/#iconfont</FontFamily>
     </Application.Resources>
 </prism:PrismApplication>
