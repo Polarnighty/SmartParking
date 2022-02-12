@@ -10,7 +10,28 @@
         mc:Ignorable="d"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Title="登录" Height="328" Width="428">
     <Window.Resources>
-        <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml"/>
+        <!--<ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml"/>-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary>
+                    <ControlTemplate TargetType="TextBox" x:Key="UserNameTextBox">
+                        <Border BorderBrush="#DDD" Margin="0,0,0,1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock>
+
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="-1" ResizeBorderThickness="0" />
@@ -32,14 +53,25 @@
             <Button Content="&#xe602;" Style="{StaticResource IconButtonStyle}" Height="28" Background="Transparent"/>
         </StackPanel>
 
-        <!--<StackPanel Grid.Row="1">
-            <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
+        <Border Width="70" Height="70" Grid.RowSpan="2" VerticalAlignment="Top" CornerRadius="40" Margin="0,80,0,0"
+                BorderThickness="2" BorderBrush="#FFA5CEF0">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" Direction="265" Opacity="0.3" Color="Gray"/>
+            </Border.Effect>
+        </Border>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Width="240" Margin="0,0,0,20">
+            <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"
+                     Height="33" FontSize="18" Background="Transparent"
+                     Template="{StaticResource UserNameTextBox}"/>
             <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}" 
-                         pwdHelper:PasswordHelper.Attach="True"/>
-            <TextBlock Text="{Binding ErrorMsg}" Foreground="Red"/>
+                         pwdHelper:PasswordHelper.Attach="True"
+                         />
+            <TextBlock Text="{Binding ErrorMsg}" Foreground="Red"
+                       Height="33" FontSize="18" Background="Transparent"/>
             <Button Width="120" Height="50" Content="Login" Command="{Binding LoginCommand}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-        </StackPanel>-->
+        </StackPanel>
 
     </Grid>
 </Window>
