@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SmartParking.Client.Start"
              xmlns:prism="http://prismlibrary.com/">
+    <!--有隐患-->
     <Application.Resources>
-        <FontFamily x:Key="Iconfont">pack://application:,,,/SmartParking.Client.Assets;component/Fonts/#iconfont</FontFamily>
+        <!--<FontFamily x:Key="Iconfont">pack://application:,,,/SmartParking.Client.Assets;component/Fonts/#iconfont</FontFamily>-->
     </Application.Resources>
 </prism:PrismApplication>
