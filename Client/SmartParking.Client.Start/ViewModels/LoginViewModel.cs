@@ -51,13 +51,11 @@ namespace SmartParking.Client.Start.ViewModels
                 ErrorMsg = "";
                 if (string.IsNullOrEmpty(UserName))
                 {
-                    ErrorMsg = "请输入用户名";
-                    return;
+                    throw new Exception("请输入用户名");
                 }
                 if (string.IsNullOrEmpty(Password))
                 {
-                    ErrorMsg = "请输入密码";
-                    return;
+                    throw new Exception("请输入密码");
                 }
                 //登录操作
                 if (loginBLL.Lgoin(UserName, Password).GetAwaiter().GetResult())
@@ -65,11 +63,15 @@ namespace SmartParking.Client.Start.ViewModels
                     //关闭登录窗口,并且DialogResult返回True
                     (obj as Window).DialogResult = true;
                 }
+                else
+                {
+                    throw new Exception("用户名或密码错误");
+                }
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                ErrorMsg = "登录失败,"+ex.Message;
             }
         }
     }

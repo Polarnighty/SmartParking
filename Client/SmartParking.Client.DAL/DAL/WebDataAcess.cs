@@ -22,8 +22,8 @@ namespace SmartParking.Client.DAL.DAL
         private MultipartFormDataContent GetFormData(Dictionary<string, HttpContent> contents)
         {
             var postContent = new MultipartFormDataContent();
-            string boundary = $"----------{DateTime.Now.Ticks.ToString("x")}";
-            postContent.Headers.Add("Content-Type", $"multipart/form-data,boundary={boundary}");
+            string boundary = $"--------{DateTime.Now.Ticks.ToString("x")}";
+            postContent.Headers.Add("ContentType", $"multipart/form-data,boundary={boundary}");
             foreach (var item in contents)
             {
                 postContent.Add(item.Value,item.Key);

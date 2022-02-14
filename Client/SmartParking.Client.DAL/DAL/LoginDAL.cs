@@ -19,7 +19,7 @@ namespace SmartParking.Client.DAL.DAL
             var contents = new Dictionary<string,HttpContent>();
             contents.Add("userName", new StringContent(userName));
             contents.Add("password", new StringContent(password));
-            return PostDatas("user/login", contents);
+            return PostDatas("User/login", contents);
         }
 
 
