@@ -3,10 +3,95 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"    
         xmlns:local="clr-namespace:SmartParking.Client.Start.Views"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" FontSize="30"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock Text="主窗口"></TextBlock>
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        FontSize="13" FontFamily="Microsoft YaHei" Foreground="#333" FontWeight="ExtraLight"
+        Title="MainWindow" Height="850" Width="1400">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="TabCloseButtonTemp">
+            <Border VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="3" 
+                    Background="Transparent" Name="back">
+                <Path Data="M0 0 8 8M0 8 8 0" Margin="5" Stroke="{TemplateBinding Foreground}"
+                      StrokeThickness="1"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="#19000000" TargetName="back"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="2,0"/>
+            <Setter Property="Foreground" Value="#444"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" MaxWidth="30" MinWidth="10"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{TemplateBinding Header}" Margin="10,0,0,0" HorizontalAlignment="Left" Width="51"/>
+                            <Grid Grid.Column="1" Name="close_grid"  Width="30" Visibility="Collapsed">
+                                <Button Foreground="{TemplateBinding Foreground}" Template="{StaticResource TabCloseButtonTemp}" Visibility="Visible"
+                                         Name="close_btn"
+                                        Command="{Binding}" CommandParameter="{Binding}"/>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding DataContext.IsCanClose}" Value="True">
+                                <Setter Property="Visibility" Value="Visible" TargetName="close_grid"/>
+                            </DataTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FF0ABEFF"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#EEE"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="-1" ResizeBorderThickness="0" />
+    </WindowChrome.WindowChrome>
+    <Grid Background="Transparent" Margin="1">
+        <DockPanel>
+            <Grid DockPanel.Dock="Left" Width="230" Background="#EEE">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Smart Parking" FontSize="20" FontWeight="Bold"
+                               HorizontalAlignment="Center" Margin="0,30"/>
+                </StackPanel>
+                <!--放置菜单的区域-->
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="LeftMenuTreeRegion"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ContentControl prism:RegionManager.RegionName="MainHeaderRegion"/>
+                <TabControl prism:RegionManager.RegionName="MainCenterRegion" Grid.Row="1"
+                            BorderThickness="0,1,0,0">
+                </TabControl>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
