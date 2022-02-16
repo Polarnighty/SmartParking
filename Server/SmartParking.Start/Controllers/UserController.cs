@@ -31,6 +31,11 @@ namespace SmartParking.Server.Start.Controllers
                 SysUserInfo sysUserInfo = userInfo[0];
 
                 // 菜单
+                // 需要进行权限管理
+                // menu->role->role_user->user
+
+
+
                 return Ok(sysUserInfo);
             }
             else
