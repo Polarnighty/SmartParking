@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{AFEF8E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Start", "1.Start", "{B64D7E8C-B2CA-4772-B25D-58DED753D2CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Start", "Server\SmartParking.Start\SmartParking.Start.csproj", "{7E9B0ECF-92D6-4167-9911-13063AB1360B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Server.Start", "Server\SmartParking.Start\SmartParking.Server.Start.csproj", "{7E9B0ECF-92D6-4167-9911-13063AB1360B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DAL", "3.DAL", "{575445FE-2864-43BF-A7CB-CEAD2DDE9857}"
 EndProject
@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.Assets"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Module", "2.Module", "{4A195641-87D5-4903-BADB-B56E62133C14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.MainModule", "Client\SmartParking.Client.MainModule\SmartParking.Client.MainModule.csproj", "{2730D874-D930-4DB0-9207-A0BB7775A8D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.MainModule", "Client\SmartParking.Client.MainModule\SmartParking.Client.MainModule.csproj", "{2730D874-D930-4DB0-9207-A0BB7775A8D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

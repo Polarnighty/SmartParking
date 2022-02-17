@@ -23,6 +23,8 @@ namespace SmartParking.Server.Models
         public int MenuType { get; set; }
         [DefaultValue(1)]
         public int State { get; set; }
+        public List<RoleInfo> RoleInfos { get; set; }
+
 
     }
 }

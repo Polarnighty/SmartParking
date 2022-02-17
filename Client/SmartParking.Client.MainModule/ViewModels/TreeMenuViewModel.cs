@@ -18,7 +18,23 @@ namespace SmartParking.Client.MainModule.ViewModels
         public TreeMenuViewModel()
         {
             //获取菜单数据
+            origMenus = GlobalEntity.CurrentUserInfo?.Menus;
 
+            FillMenus(origMenus, 0);
+
+        }
+
+        private void FillMenus(List<MenuEntity> menus,int parentId)
+        {
+            var sub = origMenus.Where(m => m.ParentId == parentId).OrderBy(m => m.Index);
+
+            if (sub.Count()>0)
+            {
+                foreach (var item in sub)
+                {
+                    var mm = new MenuItemModel() { }
+                }
+            }
         }
     }
 }

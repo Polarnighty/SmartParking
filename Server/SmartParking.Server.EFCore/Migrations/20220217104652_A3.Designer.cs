@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartParking.Server.EFCore;
 
 namespace SmartParking.Server.EFCore.Migrations
 {
     [DbContext(typeof(EFCoreContext))]
-    partial class EFCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220217104652_A3")]
+    partial class A3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

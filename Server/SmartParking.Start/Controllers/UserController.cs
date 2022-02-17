@@ -14,13 +14,15 @@ namespace SmartParking.Server.Start.Controllers
     public class UserController : ControllerBase
     {
         ILoginService loginService;
-        public UserController(ILoginService loginService)
+        IMenuService menuService;
+        public UserController(ILoginService loginService, IMenuService menuService)
         {
             this.loginService = loginService;
+            this.menuService = menuService;
         }
         [HttpPost]
         [Route("login")]
-        public IActionResult Login([FromForm] string userName,[FromForm] string password)
+        public IActionResult Login([FromForm] string userName, [FromForm] string password)
         {
             string pwd = GetMd5Str(GetMd5Str(password) + "|" + userName);
             var users = loginService.Query<SysUserInfo>(u => u.UserName == userName && u.PassWord == pwd);
@@ -33,8 +35,8 @@ namespace SmartParking.Server.Start.Controllers
                 // 菜单
                 // 需要进行权限管理
                 // menu->role->role_user->user
-
-
+                var menus = menuService.GetMenuByUserId(sysUserInfo.UserId);
+                sysUserInfo.Menus = menus;
 
                 return Ok(sysUserInfo);
             }

@@ -19,6 +19,7 @@ namespace SmartParking.Client.BLL.BLL
             var loginStr = await loginDAL.Login(userName, password);
             //反序列化用户信息
             var userEntity = JsonConvert.DeserializeObject<UserEntity>(loginStr);
+
             if (userEntity!=null)
             {
                 GlobalEntity.CurrentUserInfo = userEntity;

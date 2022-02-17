@@ -31,8 +31,8 @@ namespace SmartParking.Server.EFCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //设置联合主键
-            modelBuilder.Entity<RoleMenu>().HasKey(pk => new { pk.MenuId, pk.RoleId });
-            modelBuilder.Entity<UserRole>().HasKey(pk => new { pk.UserID, pk.RoleId });
+            //modelBuilder.Entity<RoleMenu>().HasKey(pk => new { pk.MenuId, pk.RoleId });
+            //modelBuilder.Entity<UserRole>().HasKey(pk => new { pk.UserID, pk.RoleId });
 
             //转换菜单表中的字体图标值
             var iconValueConverter = new ValueConverter<string, string>(
@@ -47,8 +47,6 @@ namespace SmartParking.Server.EFCore
 
         public DbSet<MenuInfo> MenuInfo { get; set; }
         public DbSet<RoleInfo> RoleInfo { get; set; }
-        public DbSet<RoleMenu> RoleMenu { get; set; }
-        public DbSet<UserRole> UserRole { get; set; }
 
     }
 }

@@ -17,6 +17,8 @@ namespace SmartParking.Server.Models
         public string RoleName { get; set; }
         [DefaultValue(1)]
         public int State { get; set; }
+        public List<MenuInfo> MenuInfos { get; set; }
+        public List<SysUserInfo> UserInfos { get; set; }
 
     }
 }

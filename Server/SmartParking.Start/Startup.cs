@@ -9,7 +9,7 @@ using SmartParking.Server.EFCore;
 using SmartParking.Server.IService;
 using SmartParking.Server.Service;
 
-namespace SmartParking.Start
+namespace SmartParking.Server.Start
 {
     public class Startup
     {
@@ -26,6 +26,7 @@ namespace SmartParking.Start
             services.AddTransient<MyConfiguration.IConfiguration, MyConfiguration.Configuration>();
             services.AddTransient<IEFContext, EFContext>();
             services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IMenuService, MenuService>();
 
             services.AddControllers();
 
