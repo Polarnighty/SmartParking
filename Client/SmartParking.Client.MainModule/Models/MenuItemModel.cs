@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,17 +25,25 @@ namespace SmartParking.Client.MainModule.Models
 
         public ICommand OpenViewCommand
         {
-            get => new DelegateCommand<MenuItemModel>(() =>
+            get => new DelegateCommand(() =>
             {
                 if ((Children == null || Children.Count == 0) && !string.IsNullOrEmpty(TargetView))
                 {
                     //页面跳转
+                    regionManager.RequestNavigate("MainCententRegion", TargetView);
                 }
                 else
                 {
-
+                    IsExpanded = !IsExpanded;
                 }
             });
         }
+
+        IRegionManager regionManager = null;
+        public MenuItemModel(IRegionManager regionManager)
+        {
+            this.regionManager = regionManager;
+        }
+
     }
 }

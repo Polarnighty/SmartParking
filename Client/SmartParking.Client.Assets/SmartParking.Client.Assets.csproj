@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Styles\BaseResources.xaml" />
     <Page Remove="Styles\ButtonStyles.xaml" />
   </ItemGroup>
 
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <Resource Include="Fonts\iconfont.ttf" />
+    <Resource Include="Styles\BaseResources.xaml" />
     <Resource Include="Styles\ButtonStyles.xaml" />
   </ItemGroup>
 

@@ -32,7 +32,7 @@ namespace SmartParking.Client.MainModule.ViewModels
             {
                 foreach (var item in sub)
                 {
-                    var mm = new MenuItemModel() { }
+                    var mm = new MenuItemModel() { };
                 }
             }
         }

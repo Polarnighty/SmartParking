@@ -8,6 +8,7 @@ using SmartParking.Client.DAL.IDAL;
 using SmartParking.Client.Start.Views;
 using System.Windows;
 using SmartParking.Client.MainModule;
+using SmartParking.Client.BaseModule;
 
 namespace SmartParking.Client.Start
 {
@@ -41,6 +42,7 @@ namespace SmartParking.Client.Start
         {
             //可以改为自动扫描
             moduleCatalog.AddModule<MainModule.MainModule>();
+            moduleCatalog.AddModule<BaseInfoModule>();
         }
     }
 }
