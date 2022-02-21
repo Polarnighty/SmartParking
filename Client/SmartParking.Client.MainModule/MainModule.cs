@@ -19,11 +19,13 @@ namespace SmartParking.Client.MainModule
             //需要一个Prims的RegionManger
             var regionManger = containerProvider.Resolve<IRegionManager>();
             regionManger.RegisterViewWithRegion("LeftMenuTreeRegion", typeof(TreeMenuView));
+            regionManger.RegisterViewWithRegion("MainHeaderRegion", typeof(MainHeaderView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<TreeMenuView>();
+            containerRegistry.Register<MainHeaderView>();
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using SmartParking.Client.Entity;
+﻿using Prism.Regions;
+using SmartParking.Client.Entity;
 using SmartParking.Client.MainModule.Models;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,19 @@ namespace SmartParking.Client.MainModule.ViewModels
 
         // 列表,没有树型结构
         private List<MenuEntity> origMenus = null;
+        IRegionManager regionManager;
 
-        public TreeMenuViewModel()
+        public TreeMenuViewModel(IRegionManager regionManager)
         {
+            this.regionManager = regionManager;
             //获取菜单数据
             origMenus = GlobalEntity.CurrentUserInfo?.Menus;
 
-            FillMenus(origMenus, 0);
+            FillMenus(Menus, 0);
 
         }
 
-        private void FillMenus(List<MenuEntity> menus,int parentId)
+        private void FillMenus(List<MenuItemModel> menus,int parentId)
         {
             var sub = origMenus.Where(m => m.ParentId == parentId).OrderBy(m => m.Index);
 
@@ -32,7 +35,15 @@ namespace SmartParking.Client.MainModule.ViewModels
             {
                 foreach (var item in sub)
                 {
-                    var mm = new MenuItemModel() { };
+                    var mm = new MenuItemModel(regionManager)
+                    {
+                        MenuHeader = item.MenuHeader,
+                        MenuIcon = item.MenuIcon,
+                        TargetView = item.TargetView
+                    };
+                    menus.Add(mm);
+
+                    FillMenus(mm.Children = new List<MenuItemModel>(), item.MenuId);
                 }
             }
         }

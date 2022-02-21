@@ -13,7 +13,7 @@
         <Grid.Resources>
             <ControlTemplate TargetType="ToggleButton" x:Key="ArrowButtonTemplate">
                 <Grid Background="Transparent" Name="back">
-                    <TextBlock Text="&#xe81d;" FontFamily="{StaticResource Iconfont}" 
+                    <TextBlock Text="&#xe600;" FontFamily="{StaticResource Iconfont}" 
                            VerticalAlignment="Center" HorizontalAlignment="Center"
                            RenderTransformOrigin="0.5,0.5" Name="arrow">
                     </TextBlock>

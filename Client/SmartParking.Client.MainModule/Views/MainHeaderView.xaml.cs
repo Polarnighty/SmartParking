@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartParking.Client.Start.Views
+namespace SmartParking.Client.MainModule.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainHeaderView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainHeaderView : UserControl
     {
-        public MainWindow()
+        public MainHeaderView()
         {
             InitializeComponent();
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

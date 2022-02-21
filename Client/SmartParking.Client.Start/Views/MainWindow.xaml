@@ -42,7 +42,7 @@
                                         <Grid Grid.Column="1" Name="close_grid"  Width="30" Visibility="Collapsed">
                                             <Button Foreground="{TemplateBinding Foreground}" Template="{StaticResource TabCloseButtonTemp}" Visibility="Visible"
                                          Name="close_btn"
-                                        Command="{Binding}" CommandParameter="{Binding}"/>
+                                        Command="{Binding }" CommandParameter="{Binding}"/>
                                         </Grid>
                                     </Grid>
                                     <ControlTemplate.Triggers>
@@ -72,65 +72,7 @@
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        <!--<ControlTemplate TargetType="Button" x:Key="TabCloseButtonTemp">
-            <Border VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="3" 
-                    Background="Transparent" Name="back">
-                <Path Data="M0 0 8 8M0 8 8 0" Margin="5" Stroke="{TemplateBinding Foreground}"
-                      StrokeThickness="1"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="Background" Value="#19000000" TargetName="back"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <Style TargetType="TabItem">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Margin" Value="2,0"/>
-            <Setter Property="Foreground" Value="#444"/>
-            <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <Grid Background="{TemplateBinding Background}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="auto" MaxWidth="30" MinWidth="10"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{TemplateBinding Header}" Margin="10,0,0,0" HorizontalAlignment="Left" Width="51"/>
-                            <Grid Grid.Column="1" Name="close_grid"  Width="30" Visibility="Collapsed">
-                                <Button Foreground="{TemplateBinding Foreground}" Template="{StaticResource TabCloseButtonTemp}" Visibility="Visible"
-                                         Name="close_btn"
-                                        Command="{Binding}" CommandParameter="{Binding}"/>
-                            </Grid>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <DataTrigger Binding="{Binding DataContext.IsCanClose}" Value="True">
-                                <Setter Property="Visibility" Value="Visible" TargetName="close_grid"/>
-                            </DataTrigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#FF0ABEFF"/>
-                    <Setter Property="Foreground" Value="White"/>
-                </Trigger>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#EEE"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
     </Window.Resources>
-    <!--<WindowChrome.WindowChrome>
-        <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="-1" ResizeBorderThickness="0" />
-    </WindowChrome.WindowChrome>-->
     
     <Grid Background="Transparent" Margin="1">
         <Grid>
@@ -161,7 +103,7 @@
                 </Grid.RowDefinitions>
                 <ContentControl prism:RegionManager.RegionName="MainHeaderRegion"/>
                 <TabControl prism:RegionManager.RegionName="MainCententRegion" Grid.Row="1"
-                            BorderThickness="0,1,0,0">
+                            BorderThickness="0,1,0,0" SelectionChanged="TabControl_SelectionChanged">
                 </TabControl>
             </Grid>
         </DockPanel>
