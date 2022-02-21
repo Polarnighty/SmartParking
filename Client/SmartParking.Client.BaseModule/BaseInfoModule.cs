@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using SmartParking.Client.BaseModule.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace SmartParking.Client.BaseModule
         {
             containerRegistry.RegisterForNavigation<UserManagementView>();
         }
+
+
     }
 }

@@ -3,86 +3,74 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:prism="http://prismlibrary.com/"    
+        xmlns:prism="http://prismlibrary.com/"
         xmlns:local="clr-namespace:SmartParking.Client.Start.Views"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
         FontSize="13" FontFamily="Microsoft YaHei" Foreground="#333" FontWeight="ExtraLight"
         Title="MainWindow" Height="750" Width="1400">
     <Window.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/BaseResources.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml"/>
-                <ResourceDictionary>
-                    <ControlTemplate TargetType="Button" x:Key="TabCloseButtonTemp">
-                        <Border VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="3" 
+            <ControlTemplate TargetType="Button" x:Key="TabCloseButtonTemp">
+                <Border VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="3" 
                     Background="Transparent" Name="back">
-                            <Path Data="M0 0 8 8M0 8 8 0" Margin="5" Stroke="{TemplateBinding Foreground}"
+                    <Path Data="M0 0 8 8M0 8 8 0" Margin="5" Stroke="{TemplateBinding Foreground}"
                       StrokeThickness="1"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="#19000000" TargetName="back"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                    <Style TargetType="TabItem">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="Margin" Value="2,0"/>
-                        <Setter Property="Foreground" Value="#444"/>
-                        <Setter Property="Template" >
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TabItem">
-                                    <Grid Background="{TemplateBinding Background}">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition Width="auto" MaxWidth="30" MinWidth="10"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{TemplateBinding Header}" Margin="10,0,0,0" HorizontalAlignment="Left" Width="51"/>
-                                        <Grid Grid.Column="1" Name="close_grid"  Width="30" Visibility="Collapsed">
-                                            <Button Foreground="{TemplateBinding Foreground}" Template="{StaticResource TabCloseButtonTemp}" Visibility="Visible"
-                                         Name="close_btn"
-                                        Command="{Binding }" CommandParameter="{Binding}"/>
-                                        </Grid>
-                                    </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <DataTrigger Binding="{Binding DataContext.IsCanClose}" Value="True">
-                                            <Setter Property="Visibility" Value="Visible" TargetName="close_grid"/>
-                                        </DataTrigger>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
-                                        </Trigger>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#FF0ABEFF"/>
-                                <Setter Property="Foreground" Value="White"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#EEE"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Background" Value="#19000000" TargetName="back"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+            <Style TargetType="TabItem">
+                <Setter Property="Header" Value="{Binding DataContext.PageTitle}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Margin" Value="2,0"/>
+                <Setter Property="Foreground" Value="#444"/>
+                <Setter Property="Template" >
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" MaxWidth="30" MinWidth="10"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{TemplateBinding Header}" Margin="10,0,0,0" HorizontalAlignment="Left" Width="51"/>
+                                <Grid Grid.Column="1" Name="close_grid"  Width="30" Visibility="Collapsed">
+                                    <Button Foreground="{TemplateBinding Foreground}" Template="{StaticResource TabCloseButtonTemp}"
+                                        Visibility="Collapsed" Name="close_btn"
+                                    Command="{Binding DataContext.CloseCommand}"
+                                    CommandParameter="{Binding DataContext.NavUri}"/>
+                                </Grid>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.IsCanClose}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" TargetName="close_grid"/>
+                                </DataTrigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" TargetName="close_btn"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#EEE"/>
+                    </Trigger>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#FF0ABEFF"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
     
     <Grid Background="Transparent" Margin="1">
-        <Grid>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button Content="&#xe624;" Style="{StaticResource IconButtonStyle}" FontFamily="{StaticResource Iconfont}"
-                    Height="28" Background="Transparent"/>
-                <Button Content="&#xe602;" Style="{StaticResource IconButtonStyle}" FontFamily="{StaticResource Iconfont}"
-                    Height="28" Background="Transparent" />
-            </StackPanel>
-        </Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Left" Width="230" Background="#EEE">
                 <Grid.RowDefinitions>
