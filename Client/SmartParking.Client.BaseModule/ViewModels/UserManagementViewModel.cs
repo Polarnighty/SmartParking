@@ -1,7 +1,10 @@
 ﻿using Prism.Commands;
 using Prism.Regions;
+using SmartParking.Client.BaseModule.Models;
+using SmartParking.Client.Common;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,47 +12,23 @@ using Unity;
 
 namespace SmartParking.Client.BaseModule.ViewModels
 {
-    public class UserManagementViewModel :INavigationAware
+    public class UserManagementViewModel : ViewModelBase
     {
-        public string PageTitle { get; set; } = "用户信息管理";
-        public bool IsCanClose { get; set; } = true;
-        private string NavUri { get; set; }
-        public DelegateCommand CloseCommand
+        public ObservableCollection<UserModel> UserList { get; set; }
+        public UserManagementViewModel(IUnityContainer unityContainer, IRegionManager regionManager) :base(unityContainer, regionManager)
         {
-            get => new DelegateCommand(() =>
-            {
-                //关闭操作
-                //根据URI获取对应的已注册对象名称
-                var obj = unityContainer.Registrations.FirstOrDefault(v => v.Name == NavUri);
-                var name = obj.MappedToType.Name;
-                //根据对象再从Region的Views里面找到对象
-                if (!string.IsNullOrEmpty(name))
-                {
+            PageTitle = "系统用户管理";
+            UserList = new ObservableCollection<UserModel>();
+        }
 
-                }
-                //从Region的Views移除该对象
+        public override void Refresh()
+        {
+            //刷新用户数据
+            UserList.Clear();
+            Task.Run(()=> 
+            { 
+                var users = 
             });
-        }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            NavUri = navigationContext.Uri.ToString();
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-            throw new NotImplementedException();
-        }
-
-        IUnityContainer unityContainer;
-        public UserManagementViewModel(IUnityContainer unityContainer)
-        {
-            this.unityContainer = unityContainer;
         }
     }
 }

@@ -24,9 +24,9 @@ namespace SmartParking.Client.Start.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object render, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            this.DialogResult = false;
         }
 
     }

@@ -3,19 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:prism="http://prismlibrary.com/"    
+        xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        xmlns:local="clr-namespace:SmartParking.Client.Start.Views"
+        xmlns:local="clr-namespace:SmartParking.Client.Start.Views"     
         xmlns:pwdHelper="clr-namespace:SmartParking.Client.Common;assembly=SmartParking.Client.Common"
-        mc:Ignorable="d"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        mc:Ignorable="d"
         Title="登录" Height="328" Width="428">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/BaseResources.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml"/>
+
                 <ResourceDictionary>
-                    <ControlTemplate TargetType="TextBox" x:Key="UserNameTextBox">
+                    <ControlTemplate TargetType="TextBox" x:Key="UserNameTextBoxTemplate">
                         <Border BorderBrush="#DDD" BorderThickness="0,0,0,1">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -23,17 +24,17 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="30"/>
                                 </Grid.ColumnDefinitions>
-                                <!--<TextBlock Text="请输入用户名" Foreground="#DDD" Grid.Column="1" VerticalAlignment="Center"/>-->
-
-                                <TextBlock Text="&#xe70a;" FontFamily="{StaticResource Iconfont}"
-                                    FontSize="20" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <TextBlock Text="&#xe6b9;" Grid.Column="2" FontFamily="{StaticResource Iconfont}"
-                                    FontSize="18" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="False" HorizontalScrollBarVisibility="Hidden" Margin="0,5,0,0"/>
+                                <TextBlock Text="&#xeaa0;" FontFamily="{StaticResource Iconfont}"
+                                           FontSize="20" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock Text="&#xe6df;" Grid.Column="2" FontFamily="{StaticResource Iconfont}"
+                                           FontSize="18" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                             Margin="0,5,0,0"/>
                             </Grid>
                         </Border>
                     </ControlTemplate>
 
+                    <!--Style 包含 ControlTemplate：Template-->
                     <ControlTemplate TargetType="PasswordBox" x:Key="PasswordBoxTemplate">
                         <Border BorderBrush="#DDD" BorderThickness="0,0,0,1">
                             <Grid>
@@ -42,30 +43,39 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="30"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="&#xe632;" FontFamily="{StaticResource Iconfont}"
-                                    FontSize="14" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <TextBlock Text="&#xe6c1;" Grid.Column="2" FontFamily="{StaticResource Iconfont}"
-                                    FontSize="16" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="False" HorizontalScrollBarVisibility="Hidden" Margin="0,5,0,0"/>
-                                
+                                <TextBlock Text="&#xe60a;" FontFamily="{StaticResource Iconfont}"
+                                           FontSize="14" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock Text="&#xe613;" Grid.Column="2" FontFamily="{StaticResource Iconfont}"
+                                           FontSize="16" Foreground="#BBB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                             Margin="0,5,0,0"/>
                             </Grid>
-                            
                         </Border>
                     </ControlTemplate>
+
+                    <Style TargetType="Hyperlink">
+                        <Setter Property="Foreground" Value="#AAA"/>
+                        <Setter Property="TextBlock.TextDecorations" Value="{x:Null}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#999"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
 
                     <ControlTemplate TargetType="Button" x:Key="LoginButtonTemplate">
                         <Grid>
                             <Border CornerRadius="3">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Offset="0" Color="#FF0ABEEF"/>
-                                        <GradientStop Offset="1" Color="#FF00B4FA"/>
+                                        <GradientStop Color="#FF0ABEFF" Offset="0"/>
+                                        <GradientStop Color="#FF00B4FA" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
-                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                             </Border>
-                            <Border x:Name="mask" CornerRadius="3" />                                                         
+                            <Border CornerRadius="3" Name="mask"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -76,71 +86,63 @@
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
-                    <Style TargetType="Hyperlink">
-                        <Setter Property="Foreground" Value="#AAA"/>
-                        <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="#999"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+
     </Window.Resources>
     <WindowChrome.WindowChrome>
-        <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="-1" ResizeBorderThickness="0" />
+        <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="-1" ResizeBorderThickness="0"/>
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.618*"/>
-            <RowDefinition />
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="#2E9FFB" Grid.ColumnSpan="2"></Border>
+        <Border Background="#2E9FFB"/>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,0,0,0">
-            <TextBlock Text="Polar" VerticalAlignment="Center" Foreground="White" FontSize="16"  />
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="Polar"  VerticalAlignment="Center" Foreground="White" FontSize="16"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button Content="&#xe624;" Style="{StaticResource IconButtonStyle}" FontFamily="{StaticResource Iconfont}"
+            <Button Content="&#xe6bf;" Style="{StaticResource IconButtonStyle}" 
                     Height="28" Background="Transparent"/>
-            <Button Content="&#xe602;" Style="{StaticResource IconButtonStyle}" FontFamily="{StaticResource Iconfont}"
+            <Button Content="&#xe625;" Style="{StaticResource IconButtonStyle}" 
                     Height="28" Background="Transparent" Click="Button_Click"/>
         </StackPanel>
 
+
         <Border Width="70" Height="70" Grid.RowSpan="2" VerticalAlignment="Top" CornerRadius="40" Margin="0,80,0,0"
-                BorderThickness="2" BorderBrush="#FFA5CEF0">
+                    BorderThickness="2" BorderBrush="#FFA5CEF0">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="5" Direction="265" Opacity="0.3" Color="Gray"/>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5" Direction="265" Opacity="0.3" Color="Gray"/>
             </Border.Effect>
         </Border>
-        <!--Template="{StaticResource UserNameTextBox}"-->
-        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Width="240" Margin="0,0,0,20">
-            <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}" Template="{StaticResource UserNameTextBox}"
-                     Height="33" FontSize="18" Background="Transparent"/>
-            <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}" pwdHelper:PasswordHelper.Attach="True"                          
-                         Height="33" FontSize="18" Template="{StaticResource PasswordBoxTemplate}"/>
+
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Width="240" Margin="0,0,0,10">
+            <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"
+                     Height="33" FontSize="18" Background="Transparent"
+                     Template="{StaticResource UserNameTextBoxTemplate}"/>
+            <PasswordBox pwdHelper:PasswordHelper.Password="{Binding Password,Mode=TwoWay}"
+                         pwdHelper:PasswordHelper.Attach="True"
+                         Height="33" FontSize="18"
+                         Template="{StaticResource PasswordBoxTemplate}"/>
             <UniformGrid Rows="1" Margin="0,10">
-                <CheckBox Content="记住密码" Foreground="#BBB" VerticalContentAlignment="Center"/>
                 <CheckBox Content="自动登录" Foreground="#BBB" VerticalContentAlignment="Center"/>
+                <CheckBox Content="记住密码" Foreground="#BBB" VerticalContentAlignment="Center"/>
                 <TextBlock HorizontalAlignment="Right">
                     <Hyperlink>找回密码</Hyperlink>
                 </TextBlock>
-                
             </UniformGrid>
-            
-            <!--CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"-->
-            <Button Content="登    录" Height="35" Command="{Binding LoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                    Foreground="White" FontSize="14" Margin="0,5,0,0" Template="{DynamicResource LoginButtonTemplate}" />
-            <TextBlock Text="{Binding ErrorMsg}" Foreground="Red" Margin="0,5,0,0" />
-
+            <Button Content="登   录"  Height="35" Margin="0,5,0,0" Foreground="White" FontSize="14"
+                    Command="{Binding LoginCommand}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                    Template="{StaticResource LoginButtonTemplate}"/>
+            <TextBlock Text="{Binding ErrorMsg}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="11" Foreground="Red"
+                           Margin="0,5"/>
         </StackPanel>
-
     </Grid>
+    
 </Window>
-
-
-

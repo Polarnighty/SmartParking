@@ -30,7 +30,7 @@ namespace SmartParking.Client.MainModule.Models
                 if ((Children == null || Children.Count == 0) && !string.IsNullOrEmpty(TargetView))
                 {
                     //页面跳转
-                    regionManager.RequestNavigate("MainCententRegion", TargetView);
+                    regionManager.RequestNavigate("MainContentRegion", TargetView);
                 }
                 else
                 {

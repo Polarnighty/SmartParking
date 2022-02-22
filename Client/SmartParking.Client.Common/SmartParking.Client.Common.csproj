@@ -5,4 +5,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
 </Project>

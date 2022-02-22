@@ -53,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.MainMod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.BaseModule", "Client\SmartParking.Client.BaseModule\SmartParking.Client.BaseModule.csproj", "{580BC719-C0CE-4663-A6DE-64202330BD55}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Server.Start", "Server\SmartParking.Server.Start\SmartParking.Server.Start.csproj", "{A193DCD2-7A58-4CC1-BABF-500F06032357}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Server.Start", "Server\SmartParking.Server.Start\SmartParking.Server.Start.csproj", "{8B5296AC-89A8-44E8-AA93-E07F78E706EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,10 +113,10 @@ Global
 		{580BC719-C0CE-4663-A6DE-64202330BD55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{580BC719-C0CE-4663-A6DE-64202330BD55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{580BC719-C0CE-4663-A6DE-64202330BD55}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A193DCD2-7A58-4CC1-BABF-500F06032357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A193DCD2-7A58-4CC1-BABF-500F06032357}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A193DCD2-7A58-4CC1-BABF-500F06032357}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A193DCD2-7A58-4CC1-BABF-500F06032357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5296AC-89A8-44E8-AA93-E07F78E706EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5296AC-89A8-44E8-AA93-E07F78E706EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5296AC-89A8-44E8-AA93-E07F78E706EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5296AC-89A8-44E8-AA93-E07F78E706EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,7 +145,7 @@ Global
 		{4A195641-87D5-4903-BADB-B56E62133C14} = {DC8D8E90-F6F8-4EE8-AB71-BB44171D3EAB}
 		{2730D874-D930-4DB0-9207-A0BB7775A8D2} = {4A195641-87D5-4903-BADB-B56E62133C14}
 		{580BC719-C0CE-4663-A6DE-64202330BD55} = {4A195641-87D5-4903-BADB-B56E62133C14}
-		{A193DCD2-7A58-4CC1-BABF-500F06032357} = {B64D7E8C-B2CA-4772-B25D-58DED753D2CC}
+		{8B5296AC-89A8-44E8-AA93-E07F78E706EC} = {B64D7E8C-B2CA-4772-B25D-58DED753D2CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C23EC18-A4AA-4976-934C-CDCA53FF035E}

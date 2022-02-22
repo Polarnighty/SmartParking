@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SmartParking.Server.IService;
+﻿using SmartParking.Server.IService;
 using SmartParking.Server.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SmartParking.Server.Start.Controllers
 {
@@ -15,10 +17,12 @@ namespace SmartParking.Server.Start.Controllers
     {
         ILoginService loginService;
         IMenuService menuService;
-        public UserController(ILoginService loginService, IMenuService menuService)
+        IUserService userService;
+        public UserController(ILoginService loginService, IMenuService menuService, IUserService userService)
         {
             this.loginService = loginService;
             this.menuService = menuService;
+            this.userService = userService;
         }
         [HttpPost]
         [Route("login")]
@@ -44,6 +48,13 @@ namespace SmartParking.Server.Start.Controllers
             {
                 return NoContent();
             }
+        }
+
+        [HttpGet]
+        [Route("all")]
+        public JsonResult GetUsers()
+        {
+            return new JsonResult(userService.Query<SysUserInfo>(u => true));
         }
 
         private string GetMd5Str(string inputStr)

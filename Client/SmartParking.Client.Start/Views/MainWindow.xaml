@@ -90,7 +90,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <ContentControl prism:RegionManager.RegionName="MainHeaderRegion"/>
-                <TabControl prism:RegionManager.RegionName="MainCententRegion" Grid.Row="1"
+                <TabControl prism:RegionManager.RegionName="MainContentRegion" Grid.Row="1"
                             BorderThickness="0,1,0,0" SelectionChanged="TabControl_SelectionChanged">
                 </TabControl>
             </Grid>
