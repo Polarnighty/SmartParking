@@ -35,7 +35,9 @@ namespace SmartParking.Client.Start
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<ILoginDAL, LoginDAL>();
+            containerRegistry.Register<IUserDAL, UserDAL>();
             containerRegistry.Register<ILoginBLL, LoginBLL>();
+            containerRegistry.Register<IUserBLL, UserBLL>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

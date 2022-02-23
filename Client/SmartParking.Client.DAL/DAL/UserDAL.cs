@@ -9,10 +9,15 @@ namespace SmartParking.Client.DAL.DAL
 {
     public class UserDAL : WebDataAcess, IUserDAL
     {
-        public Task<List<string>> GetAll()
+        public Task<string> GetAll()
         {
             // 服务接口
-            return GetDatas($"{domain}user/all");
+            return GetDatas($"user/all");
+        }
+
+        public Task<string> GetRolesByUserId(int uid)
+        {
+            return GetDatas($"user/roles/{uid}");
         }
     }
 }

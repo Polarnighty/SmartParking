@@ -1,4 +1,6 @@
-﻿using SmartParking.Client.BLL.IBLL;
+﻿using Newtonsoft.Json;
+using SmartParking.Client.BLL.IBLL;
+using SmartParking.Client.DAL.IDAL;
 using SmartParking.Client.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,8 +12,23 @@ namespace SmartParking.Client.BLL.BLL
 {
     public class UserBLL : IUserBLL
     {
-        public Task<List<UserEntity>> GetAll()
+        IUserDAL userDAL;
+        public UserBLL(IUserDAL userDAL)
         {
+            this.userDAL = userDAL;
+        }
+
+        public async Task<List<UserEntity>> GetAll()
+        {
+            var usersStr = await userDAL.GetAll();
+            return JsonConvert.DeserializeObject<List<UserEntity>>(usersStr);
+        }
+
+
+        public async Task<List<RoleEntity>> GetRolesByUserId(int uid)
+        {
+            var roleStr = await userDAL.GetRolesByUserId(uid);
+            return JsonConvert.DeserializeObject<List<RoleEntity>>(roleStr);
         }
     }
 }

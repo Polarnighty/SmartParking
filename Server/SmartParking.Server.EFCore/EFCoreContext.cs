@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.Extensions.Logging;
 using SmartParking.Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging.Debug;
+
 
 namespace SmartParking.Server.EFCore
 {
@@ -13,6 +16,9 @@ namespace SmartParking.Server.EFCore
     {
         private readonly string strConn = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SmartParking;Integrated Security=True;";
         protected DbSet<SysUserInfo> sysUserInfos;
+        public static readonly LoggerFactory MyLoggerFactory = new LoggerFactory(new[] { new DebugLoggerProvider() });
+
+
         public EFCoreContext()
         {
             //Database.EnsureCreated();
@@ -24,8 +30,7 @@ namespace SmartParking.Server.EFCore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(strConn);
-
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory).UseSqlServer(strConn);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

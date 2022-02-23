@@ -1,5 +1,7 @@
-﻿using SmartParking.Server.EFCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartParking.Server.EFCore;
 using SmartParking.Server.IService;
+using SmartParking.Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +16,10 @@ namespace SmartParking.Server.Service
         {
         }
 
+        public List<RoleInfo> GetRolesByUserId(int uid)
+        {
+            return context.Set<SysUserInfo>().Where(u => u.UserId == uid).Include(u => u.RoleInfos)
+                .Select(u => u.RoleInfos).FirstOrDefault();
+        }
     }
 }

@@ -56,6 +56,12 @@ namespace SmartParking.Server.Start.Controllers
         {
             return new JsonResult(userService.Query<SysUserInfo>(u => true));
         }
+        [HttpGet]
+        [Route("roles/{uid}")]
+        public JsonResult GetRolesByUserId(int uid)
+        {
+            return new JsonResult(userService.GetRolesByUserId(uid));
+        }
 
         private string GetMd5Str(string inputStr)
         {

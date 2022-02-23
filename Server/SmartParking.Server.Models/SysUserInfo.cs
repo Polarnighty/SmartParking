@@ -11,6 +11,7 @@ namespace SmartParking.Server.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public string RealName { get; set; }
         public string PassWord { get; set; }
         public string UserIcon { get; set; }
         public List<RoleInfo> RoleInfos { get; set; }
