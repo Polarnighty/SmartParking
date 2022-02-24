@@ -30,5 +30,10 @@ namespace SmartParking.Client.BLL.BLL
             var roleStr = await userDAL.GetRolesByUserId(uid);
             return JsonConvert.DeserializeObject<List<RoleEntity>>(roleStr);
         }
+
+        public async Task ResetPassword(int uid)
+        {
+
+        }
     }
 }

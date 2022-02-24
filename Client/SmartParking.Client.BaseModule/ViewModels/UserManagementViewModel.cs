@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using Unity;
 
 namespace SmartParking.Client.BaseModule.ViewModels
@@ -16,12 +17,13 @@ namespace SmartParking.Client.BaseModule.ViewModels
     public class UserManagementViewModel : ViewModelBase
     {
         IUserBLL userBLL;
-        public ObservableCollection<UserModel> UserList { get; set; }
+        IUnityContainer unityContainer;
+        public ObservableCollection<UserModel> UserList { get; set; }= new ObservableCollection<UserModel>();
         public UserManagementViewModel(IUnityContainer unityContainer, IRegionManager regionManager, IUserBLL userBLL) :base(unityContainer, regionManager)
         {
+            this.unityContainer = unityContainer;
             this.userBLL = userBLL;
             PageTitle = "系统用户管理";
-            UserList = new ObservableCollection<UserModel>();
         }
 
         public override void Refresh()
@@ -31,32 +33,64 @@ namespace SmartParking.Client.BaseModule.ViewModels
             Task.Run(()=> 
             {
                 var users = userBLL.GetAll().GetAwaiter().GetResult();
-                foreach (var item in users)
+            foreach (var item in users)
+            {
+                var userModel = new UserModel
                 {
-                    var userModel = new UserModel
-                    {
-                        Index = users.IndexOf(item) + 1,
-                        UserId = item.UserId,
-                        UserName = item.UserName,
-                        //UserIcon = System.Configuration.ConfigurationManager.AppSettings["api_domain"].ToString()
-                        //            + item.UserIcon,
-                        UserIcon ="",
-                        Age = item.Age,
-                        Password = item.Password,
-                        RealName = item.RealName
-                    };
-                    //用户角色
-                    var roles = userBLL.GetRolesByUserId(userModel.UserId).GetAwaiter().GetResult();
-                    //填充
-                    roles?.ForEach(r => userModel.Roles.Add(new RoleModel { 
-                        RoleId= r.RoleId,
-                        RoleName = r.RoleName,
-                        State = r.State
-                    }));
+                    Index = users.IndexOf(item) + 1,
+                    UserId = item.UserId,
+                    UserName = item.UserName,
+                    //UserIcon = System.Configuration.ConfigurationManager.AppSettings["api_domain"].ToString()
+                    //            + item.UserIcon,
+                    UserIcon = "",
+                    Age = item.Age,
+                    Password = item.Password,
+                    RealName = item.RealName
+                };
+                //用户角色
+                var roles = userBLL.GetRolesByUserId(userModel.UserId).GetAwaiter().GetResult();
+                //填充
+                roles?.ForEach(r => userModel.Roles.Add(new RoleModel {
+                    RoleId = r.RoleId,
+                    RoleName = r.RoleName,
+                    State = r.State
+                }));
+                // 编辑
+                userModel.EditCommand = new DelegateCommand<object>(EditItem);
+                // 删除
+                userModel.DeleteCommand = new DelegateCommand<object>(DeleteItem);
+                // 角色分配
+                userModel.RoleCommand = new DelegateCommand<object>(SetRoles);
+                // 重置密码
+                userModel.PwdCommand = new DelegateCommand<object>(SetPassword);
 
-                    userModel.EditCommand= new DelegateCommand
+                unityContainer.Resolve<Dispatcher>().Invoke(() => {
                     UserList.Add(userModel);
+                });
+                    
                 }
+            });
+        }
+        public override void AddItem()
+        {
+        }
+        private void EditItem(object obj)
+        {
+
+        }
+        private void DeleteItem(object obj)
+        {
+
+        }
+        private void SetRoles(object obj)
+        {
+
+        }
+        private void SetPassword(object obj)
+        {
+            Task.Run(async ()=> {
+                await userBLL.ResetPassword(int.Parse(obj.ToString()));
+                System.Windows.MessageBox.Show("密码已重置","提示");
             });
         }
     }

@@ -63,6 +63,7 @@ namespace SmartParking.Client.Common
         {
             _unityContainer = unityContainer;
             _regionManager = regionManager;
+            Refresh();
         }
 
         public virtual void Refresh() { 

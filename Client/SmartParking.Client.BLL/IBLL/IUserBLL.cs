@@ -11,5 +11,6 @@ namespace SmartParking.Client.BLL.IBLL
     {
         Task<List<UserEntity>> GetAll();
         Task<List<RoleEntity>> GetRolesByUserId(int uid);
+        Task ResetPassword(int uid);
     }
 }

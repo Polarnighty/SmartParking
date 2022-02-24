@@ -100,7 +100,7 @@
                                 </StackPanel>
                                 <TextBlock>
                                     <Run Text="["/>
-                                    <Hyperlink Command="{Binding PwdCommand}" CommandParameter="{Binding}">Reset Password</Hyperlink>
+                                    <Hyperlink Command="{Binding PwdCommand}" CommandParameter="{Binding UserId}">Reset Password</Hyperlink>
                                     <Run Text="]"/>
                                 </TextBlock>
                             </StackPanel>
