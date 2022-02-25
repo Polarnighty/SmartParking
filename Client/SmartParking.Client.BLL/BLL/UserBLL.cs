@@ -33,7 +33,7 @@ namespace SmartParking.Client.BLL.BLL
 
         public async Task ResetPassword(int uid)
         {
-
+            return;
         }
     }
 }
